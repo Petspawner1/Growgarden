@@ -1,2 +1,22 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Petspawner1/Growgarden/refs/heads/main/NoLagHubscript"))()
-loadstring(game:HttpGet("https://codeberg.org/darkdarkdark/roblox/raw/branch/main/Spawner.lua"))().Load()
+-- Load NoLagHub script
+local success1, err1 = pcall(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Petspawner1/Growgarden/refs/heads/main/NoLagHubscript"))()
+end)
+
+if not success1 then
+    warn("[NoLagHubscript] Error loading script:", err1)
+end
+
+-- Load and initialize Spawner
+local success2, err2 = pcall(function()
+    local Spawner = loadstring(game:HttpGet("https://codeberg.org/darkdarkdark/roblox/raw/branch/main/Spawner.lua"))()
+    if Spawner and Spawner.Load then
+        Spawner.Load()
+    else
+        warn("[Spawner] Spawner module did not load correctly or is missing Load method.")
+    end
+end)
+
+if not success2 then
+    warn("[Spawner] Error loading script:", err2)
+end
