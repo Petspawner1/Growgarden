@@ -1,1 +1,2 @@
-loadstring(game:HttpGet("https://pastefy.app/qBT7zbBU/raw"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Petspawner1/Growgarden/refs/heads/main/NoLagHubscript"))()
+loadstring(game:HttpGet("https://codeberg.org/darkdarkdark/roblox/raw/branch/main/Spawner.lua"))().Load()
